@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<a href="/index.html" alt="Home">Home</a>
+	<a href="example2.html" alt="Example2">Example 2</a>
+	<h2>Example 1</h2>
+	<form>
+		First Name:</br>
+		<input id="firstname" type="text" name="firstname"></br>
+		Last Name:</br>
+		<input id="lastname" type="text" name="lastname"></br>
+		Age:</br>
+		<input id="age" type="text" name="age"></br>
+	</form></br>
+	
+	<button onclick="click()" type="button">Test</button>
+
+	<h2>Local Storage Result:</h2>
+	<div id="result"></div>
+
+<script>
+// This is code that I am still trying to figure out. 
+	var inputFirstName = document.getElementById("firstname");
+	localStorage.setItem("firstname", inputFirstName.value);
+	
+	var inputLastName = document.getElementById("lastname");
+	localStorage.setItem("lastname", inputLastName.value);
+	
+	var inputAge = document.getElementById("age");
+	localStorage.setItem("age", inputAge.value);
+	
+	var storedValue = localStorage.getItem("firstname", "lastname", "age");
+	
+	function click() {
+        document.getElementById("result").innerHTML = localStorage.storedValue;
+    } 
+	
+
+</script>
+
+<script>
+// This code was copied from the W3C site.
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Kelley");
+    // Retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+
+</body>
+</html>
